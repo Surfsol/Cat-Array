@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Cats Array</title>
+  </head>
+  <body>
+
+    <!-- <img id='cat'/> -->
+    <h2>For each</h2>
+    <div id='eachCats'></div>
+    <h2>For loop</h2>
+    <div id='forCats'></div>
+    <h2>Map</h2>
+    <div id='map'></div>
+    <h2>If length > <span id='char'></span></h2>
+    <div id='ifCats'></div>
+
+  </body>
+  <script>
+      const black_cat = './assets/black_cat.jpg' ;
+      const cat = './assets/cat.jpg' ;
+      const cheetah= './assets/cheetah.jpg' ;
+      const heyna = './assets/heyna.jpg' ;
+      const leapord = './assets/leapord.jpg' ;
+      const lion = './assets/lion.jpg' ;
+      const tiger = './assets/tiger.jpg' ;
+
+      let catsArray = [black_cat, cat, cheetah, heyna, leapord, lion, tiger]
+
+      const list = document.querySelector('#eachCats')
+
+      catsArray.forEach(cat => {
+        const img = document.createElement('img')
+        img.src = cat
+        list.appendChild(img)
+      })
+
+      const forLoopList = document.querySelector('#forCats')
+
+      for(let i=0; i<catsArray.length; i++){
+        const forL = document.createElement('img')
+        forL.src = catsArray[i]
+        forLoopList.appendChild(forL)
+      }
+
+      const mapList = document.querySelector('#map')
+
+      catsArray.map(cat => {
+        const img = document.createElement('img')
+        img.src = cat
+        mapList.appendChild(img)
+      })
+
+      const ifList = document.querySelector('#ifCats')
+      let char = 18
+      for(let i=0; i<catsArray.length ; i++){
+        if (catsArray[i].length > char){
+          console.log(catsArray[i])
+        const ifCats = document.createElement('img')
+        ifCats.src = catsArray[i]
+        ifList.appendChild(ifCats)
+        }
+      }
+      document.getElementById("char").innerHTML = char
+      document.getElementById("cat").src = black_cat
+  </script>
+</html>
