@@ -7,36 +7,79 @@
     <link rel="stylesheet" href="./style.css" />
     <title>Cats Array</title>
   </head>
+  <style>
+   
+  </style>
   <body>
 
     <!-- <img id='cat'/> -->
-    <h2>For each</h2>
-    <div id='eachCats'></div>
+    <h2>0 element in array</h2>
+    <div id='zero'></div>
+    <img id='zeroPic'></img>
+    <h2>1 element in array</h2>
+    <div id='one'></div>
+    <img id='onePic'></img>
+    <h2>2 element in array</h2>
+    <div id='two'></div>
+    <img id='twoPic'></img>
+    <h2>3 element in array</h2>
+    <div id='three'></div>
+    <img id='threePic'></img>
     <h2>For loop</h2>
     <div id='forCats'></div>
+    <h2>For loop start at 2, end 1 less than length</h2>
+    <div id='forCats2'></div>
+    <h2>For loop Reverse</h2>
+    <div id='forCatsReverse'></div>
+    <h2>For each</h2>
+    <div id='eachCats'></div>
     <h2>Map</h2>
     <div id='map'></div>
-    <h2>If length > <span id='char'></span></h2>
+    <h2>If name length > <span id='char'></span></h2>
     <div id='ifCats'></div>
 
   </body>
   <script>
-      const black_cat = './assets/black_cat.jpg' ;
-      const cat = './assets/cat.jpg' ;
-      const cheetah= './assets/cheetah.jpg' ;
-      const heyna = './assets/heyna.jpg' ;
-      const leapord = './assets/leapord.jpg' ;
-      const lion = './assets/lion.jpg' ;
-      const tiger = './assets/tiger.jpg' ;
+      // define pictures
+      const paul = './assets/paul.jpg' ;
+      const cardi = './assets/cardi.jpg' ;
+      const vin= './assets/vin.jpg' ;
+      const ronda = './assets/ronda.jpg' ;
+      const luda = './assets/luda.jpg' ;
+      const michelle = './assets/michelle.jpg' ;
+      const tyrese = './assets/tyrese.jpg' ;
 
-      let catsArray = [black_cat, cat, cheetah, heyna, leapord, lion, tiger]
+      // put into an array
+      let catsArray = [paul, cardi, vin, ronda, luda, michelle, tyrese]
 
-      const list = document.querySelector('#eachCats')
+      // show 0 element in catsArray
+      document.querySelector('#zero').innerHTML = catsArray[0]
+
+      // show 0 image in catsArray
+      document.getElementById('zeroPic').src = catsArray[0]
+
+      // show 1 image in catsArray
+      document.getElementById('one').innerHTML = catsArray[1]
+      document.getElementById('onePic').src = catsArray[1]
+
+      // show 2 image in catsArray
+      document.querySelector('#two').innerHTML = catsArray[2]
+      document.getElementById("twoPic").src = catsArray[2]
+
+      // show 3 image in catsArray
+      document.querySelector('#three').innerHTML = catsArray[3]
+      document.getElementById('threePic').src = catsArray[3]
+
+      // select id='eachCats', call it 'forEachList'
+      const forEachList = document.querySelector('#eachCats')
 
       catsArray.forEach(cat => {
+        // create img
         const img = document.createElement('img')
+        // add src,  document.createElement('img').src = './assets/paul.jpg'
         img.src = cat
-        list.appendChild(img)
+        // add document.createElement('img').src = './assets/paul.jpg' to forEachList
+        forEachList.appendChild(img)
       })
 
       const forLoopList = document.querySelector('#forCats')
@@ -45,6 +88,22 @@
         const forL = document.createElement('img')
         forL.src = catsArray[i]
         forLoopList.appendChild(forL)
+      }
+
+      const forLoopList2 = document.querySelector('#forCats2')
+
+      for(let i=2; i<catsArray.length-1; i++){
+        const forL = document.createElement('img')
+        forL.src = catsArray[i]
+        forLoopList2.appendChild(forL)
+      }
+
+      const forLoopListRev = document.querySelector('#forCatsReverse')
+
+      for(let i=catsArray.length-1; i>=0; i--){
+        const forL = document.createElement('img')
+        forL.src = catsArray[i]
+        forLoopListRev.appendChild(forL)
       }
 
       const mapList = document.querySelector('#map')
@@ -56,16 +115,18 @@
       })
 
       const ifList = document.querySelector('#ifCats')
-      let char = 18
+      let nameLength = 18
       for(let i=0; i<catsArray.length ; i++){
-        if (catsArray[i].length > char){
+        if (catsArray[i].length > nameLength){
           console.log(catsArray[i])
         const ifCats = document.createElement('img')
+        // adding to document.createElement('img')
         ifCats.src = catsArray[i]
+         // append document.createElement('img').src = paul
         ifList.appendChild(ifCats)
         }
       }
-      document.getElementById("char").innerHTML = char
-      document.getElementById("cat").src = black_cat
+      document.getElementById("char").innerHTML = 1234
+  
   </script>
 </html>
